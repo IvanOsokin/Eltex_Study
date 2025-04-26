@@ -38,7 +38,7 @@ int main()
 	printf("y = %f\n", y);
 	float* xp = &y;
 	float* yp = &y;
-	printf("Результат: %f\n", *xp + *yp);
+	printf("Р РµР·СѓР»СЊС‚Р°С‚: %f\n", *xp + *yp);
 
 	//----------------------- Display array -----------------------
 
