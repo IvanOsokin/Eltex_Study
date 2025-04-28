@@ -1,10 +1,42 @@
-#define _CRT_SECURE_NO_WARNINGS
-
 #include <stdio.h>
 
 void ClearInputBuffer()
 {
 	while (getchar() != '\n');
+}
+
+int StringLength(const char *string)
+{
+	int length = 0;
+	while (*string++ != '\0') {
+		++length;
+	}
+	return length;
+}
+
+char* FindSubstring(const char *string, const char *subString)
+{
+	const int subStrSize = StringLength(subString);
+	for (; *string != '\0'; ++string) {
+		if (StringLength(string) < subStrSize) {
+			return NULL;
+		}
+
+		if (*string == *subString) {
+			short different = 0;
+			const char* sp = string;
+			const char* ssp = subString;
+			while (*ssp != '\0') {
+				if (*ssp++ != *sp++) {
+					different = 1;
+					break;
+				}
+			}
+			if (!different) {
+				return string;
+			}
+		}
+	}
 }
 
 int main()
@@ -49,6 +81,31 @@ int main()
 		printf("%d ", *ap);
 	}
 	
+	//----------------------- Find a substring -----------------------
+
+	char string[81] = { '\0' };
+	printf("Enter a string: ");
+	while (scanf("%80[^\n]s", string) != 1) {
+		ClearInputBuffer();
+		printf("Empty initial string. Try Again.\n");
+	}
+	ClearInputBuffer();
+
+	char subString[81];	
+	printf("Enter a substring: ");
+	while (scanf("%80[^\n]s", subString) != 1) {
+		ClearInputBuffer();
+		printf("Empty substring. Try Again.\n");
+	}
+	ClearInputBuffer();
+
+	const char* substr = FindSubstring(string, subString);
+	if (substr == NULL) {
+		printf("\"%s\" is not a substring of \"%s\"", subString, string);
+	}
+	else {
+		printf("Substring: \"%s\"", substr);
+	}
 
 	return 0;
 }
