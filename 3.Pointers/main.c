@@ -14,7 +14,7 @@ int StringLength(const char *string)
 	return length;
 }
 
-char* FindSubstring(const char *string, const char *subString)
+const char* FindSubstring(const char *string, const char *subString)
 {
 	const int subStrSize = StringLength(subString);
 	for (; *string != '\0'; ++string) {
