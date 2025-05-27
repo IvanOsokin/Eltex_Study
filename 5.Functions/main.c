@@ -160,7 +160,7 @@ int main()
 		case 5:
 			break;
 		default:
-			printf("Выбран невырный пункт меню!\n");
+			printf("Выбран неверный пункт меню!\n");
 			break;
 		}
 	}
