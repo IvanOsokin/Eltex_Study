@@ -36,6 +36,10 @@ void DisplayAbonent(struct abonent a)
 
 void AddAbonent(struct abonent *abonents)
 {
+	if (abonents == NULL) {
+		return;
+	}
+
 	int filled = 1;
 	printf("\tДобавление абонента\n");
 	for (int i = 0; i < REFERENCE_AMOUNT; ++i) {
@@ -61,6 +65,10 @@ void AddAbonent(struct abonent *abonents)
 
 void RemoveAbonent(struct abonent *abonents)
 {
+	if (abonents == NULL) {
+		return;
+	}
+
 	printf("\tУдаление абонента\n");
 	printf("Введите номер записи абонента для удаления: ");
 	int abonentNumber = 0;
@@ -79,6 +87,10 @@ void RemoveAbonent(struct abonent *abonents)
 
 void SearchAbonentByName(struct abonent *abonents)
 {
+	if (abonents == NULL) {
+		return;
+	}
+
 	char searchName[10] = { 0 };
 	printf("Введите имя для поиска: ");
 	scanf("%9[^\n]s", searchName);
@@ -108,6 +120,10 @@ void SearchAbonentByName(struct abonent *abonents)
 
 void DisplayAbonents(struct abonent *abonents)
 {
+	if (abonents == NULL) {
+		return;
+	}
+
 	int empty = 1;
 	for (int i = 0; i < REFERENCE_AMOUNT; ++i) {
 		if (IsEmptyAbonent(abonents[i])) {
