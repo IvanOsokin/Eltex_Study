@@ -63,7 +63,7 @@ void AddAbonent(struct abonent **abonents)
 	ClearInputBuffer();
 	
 	int addResult = Add(abonents, name, surname, phone);
-	if (addResult) {
+	if (addResult <= 0) {
 		fprintf(stderr, "Ошибка при добавлении абонента!");
 		if (-1 == addResult) {
 			fprintf(stderr, " Не задано одно из полей!\n");
